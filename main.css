@@ -1,18 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    box-sizing: border-box;
-    background-color: purple;
+    background-color: green;
 }
-
-.card {
-    margin: 100px;
-    margin-left: 500px;
-    width: 191.8px;
-    height: 261.8px;
-    background: green;
-}
-
