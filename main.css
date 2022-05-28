@@ -12,6 +12,7 @@
   }
   .container {
       margin-top: 100px;
+      display: flex;
   }
   .card {
     width: 219.2px;
