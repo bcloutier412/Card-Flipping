@@ -14,7 +14,7 @@
       margin-top: 100px;
       display: flex;
   }
-  .card {
+  /* .card {
     width: 219.2px;
     height: 299.2px;
     perspective: 1000px;
@@ -62,13 +62,10 @@
   
   .card__face--back {
     transform: rotateY(180deg);
-    /* background-image: url('images/dinobabies.jpg');
-    background-position: center;
-    background-size: cover; */
   }
   .card__face--back img{
     width: auto;
     height: 100%;
     margin: 0 auto;
     transform: translateX(-25px);
-  }
+  } */
