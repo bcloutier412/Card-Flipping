@@ -8,7 +8,7 @@
   .card__inner {
     width: 100%;
     height: 100%;
-    transition: transform 1s;
+    transition: transform 1s, box-shadow .2s linear;
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
@@ -56,4 +56,8 @@
     height: 100%;
     margin: 0 auto;
     transform: translateX(-25px);
+  }
+
+  .greenboxshadow {
+    box-shadow: 10px 10px 5px green;
   }
