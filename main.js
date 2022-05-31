@@ -2,7 +2,8 @@
 let cardsInPlay = [];
 let cardsMatched = [];
 let numberOfPairs = 2;
-let gameStyle = 'dinobabies'
+let gameStyle = 'doodles';
+let cardBackgroundImg = 'images/doodlesgif.gif'
 let firstPickedImage = undefined;
 let secondPickedImage = undefined;
 
@@ -11,9 +12,16 @@ const numberOfPairsSelect = document.querySelector("#numberOfPairs");
 const resetBtn = document.querySelector("#reset");
 const container = document.querySelector(".container");
 const gameStyleSelect = document.querySelector('#gameStyle')
+const body = document.querySelector('body')
 
 gameStyleSelect.addEventListener("change", function () {
   gameStyle = this.value
+  if (this.value === 'dinobabies') {
+    cardBackgroundImg = 'images/dinobabiesegg.jpg'
+  }
+  else if (this.value === 'doodles') {
+    cardBackgroundImg = 'images/doodlesgif.gif'
+  }
 })
 
 numberOfPairsSelect.addEventListener("change", function () {
@@ -25,8 +33,10 @@ resetBtn.addEventListener("click", reset);
 
 function createCardFront() {
   const cardFront = document.createElement("div");
-  const cardFrontText = document.createElement("h2");
-  cardFrontText.textContent = "Dinos arcade";
+  // const cardFrontText = document.createElement("h2");
+  // cardFrontText.textContent = "Dinos arcade";
+  const cardFrontText = document.createElement("img");
+  cardFrontText.src = cardBackgroundImg;
   cardFront.appendChild(cardFrontText);
   cardFront.classList.add("card__face", "card__face--front");
   return cardFront;
@@ -109,6 +119,8 @@ function createCard(indexForImg) {
 
 //Function to reset the game board with defualt or newly given number of pairs
 function reset() {
+  body.className = '';
+  body.classList.add(gameStyle)
   //Removing all cards from the Container div
   cardsInPlay.forEach((element) => {
     container.removeChild(element);

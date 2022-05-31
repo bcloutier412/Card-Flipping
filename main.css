@@ -2,73 +2,23 @@
     margin: 0;
     padding: 0;
   }
-  
-  body {
-    font-family: montserrat, sans-serif;
-    width: 100%;
-    min-height: 100vh;
-    /* background: url('https://www.xmple.com/wallpaper/graph-paper-black-blue-grid-1920x1080-c2-000000-00bfff-l2-6-54-a-0-f-20.svg'); */
-    background: url('images/dinobabiesbackground.jpg');
-    background-size: cover;
-  }
-  .container {
-      margin-top: 100px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-  }
-  /* .card {
-    width: 219.2px;
-    height: 299.2px;
-    perspective: 1000px;
-  }
-  
-  .card__inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    position: relative;
-    background: radial-gradient(#7b2cbf, #10002b);
-    border-radius: 16px;
-    border: 4px solid white;
-    box-shadow: 3px 3px 10px black;
-  }
-  
-  .card__inner.is-flipped {
-    transform: rotateY(180deg);
-  }
-  
-  
-  .card__face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card__face--front {
+.container {
+    margin-top: 100px;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-  }
-  
-  .card__face--front h2 {
-    color: #FFF;
-    font-size: 32px;
-  }
-  
-  .card__face--back {
-    transform: rotateY(180deg);
-  }
-  .card__face--back img{
-    width: auto;
-    height: 100%;
-    margin: 0 auto;
-    transform: translateX(-25px);
-  } */
+}
+.doodles {
+  background: url('https://pbs.twimg.com/media/FTSfCnTXoAEyhOp?format=jpg&name=large');
+  background-size: cover;
+  font-family: montserrat, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+.dinobabies {
+  background: url('images/dinobabiesbackground.jpg');
+  background-size: cover;
+  font-family: montserrat, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}

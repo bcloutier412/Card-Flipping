@@ -12,12 +12,16 @@
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
-    background: radial-gradient(#7b2cbf, #10002b);
+    /* background: radial-gradient(#cce3de, #eaf4f4); */
+    background-color: rgba(235, 139, 120, .9);
     border-radius: 16px;
     border: 4px solid white;
     box-shadow: 3px 3px 10px black;
   }
-  
+  .card__inner img {
+    width: 50%;
+    height: auto;
+  }
   .card__inner.is-flipped {
     transform: rotateY(180deg);
   }
