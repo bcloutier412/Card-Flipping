@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Game</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="carddesign.css">
-</head>
-<body>
-	<select name="" id="numberOfPairs">
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-	</select>
-	<select name="" id="gameStyle">
-		<option value="doodles">doodles</option>
-		<option value="dinobabies">dinobabies</option>
-	</select>
-	<button id="reset" class="">Reset</button>
-	<div class="container">
-		<!-- <div class="card">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="carddesign.css" />
+  </head>
+  <body>
+    <img src="images/doodlesbanner.png" alt="" id="banner" />
+    <div id="menu-btns">
+      <select name="" id="numberOfPairs" class="doodles-btn">
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7" selected>7</option>
+      </select>
+      <select name="" id="gameStyle">
+        <option value="doodles">doodles</option>
+        <option value="dinobabies">dinobabies</option>
+      </select>
+      <button id="reset" class="">Reset</button>
+    </div>
+    <div class="container">
+      <!-- <div class="card">
 			<div class="card__inner">
 				<div class="card__face card__face--front">
 					<h2>Dinos Arcade</h2>
@@ -33,8 +33,8 @@
 				</div>
 			</div>
 		</div> -->
-	</div>
+    </div>
 
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

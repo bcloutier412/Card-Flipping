@@ -65,3 +65,34 @@
   .greenboxshadow {
     box-shadow: 9px 9px 5px green;
   }
+
+  .doodles-background-color {
+    background-color: rgba(235, 139, 120, .9);
+  }
+
+  .dinobabies-background-color {
+    background-color: rgba(73, 182, 255, .9);
+  }
+
+  @media (max-width: 1312px) {
+    .card {
+      width: 191.8px;
+      height: 261.8px;
+      margin: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      width: 150.7px;
+      height: 205.7px;
+      margin: 15px;
+    }
+  }
+  @media (max-width: 390px) {
+    .card {
+      width: 95.9px;
+      height: 130.9px;
+      margin: 10px;
+    }
+  }

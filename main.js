@@ -1,7 +1,7 @@
 // Global Variables
 let cardsInPlay = [];
 let cardsMatched = [];
-let numberOfPairs = 2;
+let numberOfPairs = 7;
 let gameStyle = 'doodles';
 let cardBackgroundImg = 'images/doodlesgif.gif'
 let firstPickedImage = undefined;
@@ -33,8 +33,6 @@ resetBtn.addEventListener("click", reset);
 
 function createCardFront() {
   const cardFront = document.createElement("div");
-  // const cardFrontText = document.createElement("h2");
-  // cardFrontText.textContent = "Dinos arcade";
   const cardFrontText = document.createElement("img");
   cardFrontText.src = cardBackgroundImg;
   cardFront.appendChild(cardFrontText);
@@ -59,6 +57,7 @@ function createCard(indexForImg) {
   // Creating MAIN Card Content
   const cardInner = document.createElement("div");
   cardInner.classList.add("card__inner");
+  cardInner.classList.add(gameStyle + '-background-color')
   //Checking for click -> toggle .is-flipped to flip card/ checking for matching imgs
   cardInner.addEventListener("click", function () {
     //Checks if the card is not the firstpickedimage/card and that it is in the 
@@ -120,7 +119,7 @@ function createCard(indexForImg) {
 //Function to reset the game board with defualt or newly given number of pairs
 function reset() {
   body.className = '';
-  body.classList.add(gameStyle)
+  body.classList.add(gameStyle + '-background-image')
   //Removing all cards from the Container div
   cardsInPlay.forEach((element) => {
     container.removeChild(element);
