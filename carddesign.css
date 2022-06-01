@@ -8,7 +8,7 @@
   .card__inner {
     width: 100%;
     height: 100%;
-    transition: transform 1s, box-shadow .2s linear;
+    transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
@@ -21,6 +21,12 @@
   .card__inner img {
     width: 50%;
     height: auto;
+  }
+  @media (max-width: 768px) {
+    .card__inner img {
+      width: 75%;
+      height: auto;
+    }
   }
   .card__inner.is-flipped {
     transform: rotateY(180deg);
@@ -74,6 +80,11 @@
     background-color: rgba(73, 182, 255, .9);
   }
 
+  .kaijukingz-background-color {
+    background: url('images/kaijukingzgif.gif');
+    background-size: cover;
+    background-position-x: center;    
+  }
   @media (max-width: 1312px) {
     .card {
       width: 191.8px;
@@ -88,11 +99,18 @@
       height: 205.7px;
       margin: 15px;
     }
+    /* .card__inner img {
+      width: 75%;
+      height: auto;
+    } */
   }
-  @media (max-width: 390px) {
+  @media (max-width: 536px) {
     .card {
       width: 95.9px;
       height: 130.9px;
       margin: 10px;
+    }
+    .greenboxshadow {
+      box-shadow: 4px 4px 5px green;
     }
   }

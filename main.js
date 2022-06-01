@@ -13,6 +13,8 @@ const resetBtn = document.querySelector("#reset");
 const container = document.querySelector(".container");
 const gameStyleSelect = document.querySelector('#gameStyle')
 const body = document.querySelector('body')
+const bannerimg = document.querySelector('#banner')
+const menuBtns = document.querySelector('#menu-btns')
 
 gameStyleSelect.addEventListener("change", function () {
   gameStyle = this.value
@@ -21,6 +23,9 @@ gameStyleSelect.addEventListener("change", function () {
   }
   else if (this.value === 'doodles') {
     cardBackgroundImg = 'images/doodlesgif.gif'
+  }
+  else if (this.value === 'kaijukingz') {
+    cardBackgroundImg = ''
   }
 })
 
@@ -120,6 +125,10 @@ function createCard(indexForImg) {
 function reset() {
   body.className = '';
   body.classList.add(gameStyle + '-background-image')
+  bannerimg.src = `images/${gameStyle}banner.png`
+  menuBtns.childNodes.forEach(function(nodeObj) {
+    nodeObj.className = `${gameStyle}-btn`
+  })
   //Removing all cards from the Container div
   cardsInPlay.forEach((element) => {
     container.removeChild(element);

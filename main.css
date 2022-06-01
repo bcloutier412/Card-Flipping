@@ -3,7 +3,7 @@
     padding: 0;
   }
 .container {
-    margin-top: 25px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -13,14 +13,30 @@
   width: 30%;
 }
 #menu-btns {
+  margin-top: 10px;
   margin-left: 20px;
 }
 .doodles-btn {
-  padding: 5px 7px;
-  background-color: #90e0ef;
-  border: 1px solid white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 10px;
+  padding: 2.5px 7px;
+  background-color: #ffe375;
+  border: none;
+  font-family: 'Sriracha', cursive;
+  border-radius: 5px;
+}
+.dinobabies-btn {
+  padding: 2.5px 7px;
+  background-color: rgba(73, 182, 255, .9);
+  border: none;
+  font-family: 'Sriracha', cursive;
+  border-radius: 5px;
+}
+
+.kaijukingz-btn {
+  padding: 2.5px 7px;
+  background-color: rgba(237, 56, 35, 0.8);
+  border: none;
+  font-family: "Montserrat",sans-serif;
+  border-radius: 5px;
 }
 .doodles-background-image {
   background: url('https://pbs.twimg.com/media/FTSfCnTXoAEyhOp?format=jpg&name=large');
@@ -32,6 +48,14 @@
 }
 .dinobabies-background-image {
   background: url('images/dinobabiesbackground.jpg');
+  background-size: cover;
+  background-position-x: center;
+  font-family: montserrat, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+.kaijukingz-background-image {
+  background: url('images/kaijukingzbackground.gif');
   background-size: cover;
   background-position-x: center;
   font-family: montserrat, sans-serif;
