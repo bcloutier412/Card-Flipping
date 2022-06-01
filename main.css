@@ -14,7 +14,7 @@
 }
 #menu-btns {
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left:20px;
 }
 .doodles-btn {
   padding: 2.5px 7px;
@@ -33,10 +33,15 @@
 
 .kaijukingz-btn {
   padding: 2.5px 7px;
-  background-color: rgba(237, 56, 35, 0.8);
-  border: none;
+  background-color: transparent;
+  border: 2px solid rgba(237, 56, 35, 0.8);
   font-family: "Montserrat",sans-serif;
   border-radius: 5px;
+  color: rgba(237, 56, 35, 0.8);
+}
+.kaijukingz-btn option{
+  background: transparent;
+  color: black;
 }
 .doodles-background-image {
   background: url('https://pbs.twimg.com/media/FTSfCnTXoAEyhOp?format=jpg&name=large');
