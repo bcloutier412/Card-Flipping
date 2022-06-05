@@ -1,20 +1,26 @@
 // Global Variables
 let cardsInPlay = [];
 let cardsMatched = [];
-let numberOfPairs = 7;
+let numberOfPairs = 2;
 let gameStyle = 'doodles';
 let cardBackgroundImg = 'images/doodlesgif.gif'
 let firstPickedImage = undefined;
 let secondPickedImage = undefined;
+let inPlay = false;
 
 //Document Selectors
 const numberOfPairsSelect = document.querySelector("#numberOfPairs");
 const resetBtn = document.querySelector("#reset");
 const container = document.querySelector(".container");
-const gameStyleSelect = document.querySelector('#gameStyle')
-const body = document.querySelector('body')
-const bannerimg = document.querySelector('#banner')
-const menuBtns = document.querySelector('#menu-btns')
+const gameStyleSelect = document.querySelector('#gameStyle');
+const body = document.querySelector('body');
+const bannerimg = document.querySelector('#banner');
+const menuBtns = document.querySelector('#menu-btns');
+const seconds = document.querySelector('#seconds')
+const milliseconds = document.querySelector('#milliseconds')
+const winningMessage = document.querySelector('#winningMessage')
+const winningMessageSeconds = document.querySelector('#winningMessageSeconds')
+const winningMessageMilliseconds = document.querySelector('#winningMessageMilliseconds')
 
 gameStyleSelect.addEventListener("change", function () {
   gameStyle = this.value
@@ -35,7 +41,56 @@ numberOfPairsSelect.addEventListener("change", function () {
 
 resetBtn.addEventListener("click", reset);
 
+function displayWinningScreen() {
+  cardsMatched.forEach((element) => {
+    setTimeout(() => {
+      container.style.display = 'none'
+      winningMessageSeconds.textContent = seconds.textContent
+      winningMessageMilliseconds.textContent = milliseconds.textContent
+      winningMessage.style.display = 'block'
+    }, 1500)
+  })
+}
+function gameTimer() {
+  if (inPlay === false) {
+    return
+  }
 
+  setTimeout(() => {
+    secondsNum = parseInt(seconds.textContent)
+    millisecondsNum = parseInt(milliseconds.textContent)
+    millisecondsNum += 1
+    if (millisecondsNum === 10) {
+      secondsNum += 1
+      seconds.textContent = secondsNum
+      milliseconds.textContent = 0
+    }
+    else {
+      milliseconds.textContent = millisecondsNum
+    }
+    gameTimer()
+  }, 100)
+}
+function setGameStyle() {
+  body.className = '';
+  body.classList.add(gameStyle + '-background-image')
+  bannerimg.src = `images/${gameStyle}banner.png`
+  menuBtns.childNodes.forEach(function(nodeObj) {
+  nodeObj.className = `${gameStyle}-btn`
+  })
+}
+function removeAllExistingCards() {
+  cardsInPlay.forEach((element) => {
+    container.removeChild(element);
+  });
+  cardsMatched.forEach((element) => {
+    container.removeChild(element);
+  });
+  cardsInPlay = [];
+  cardsMatched = [];
+  firstPickedImage = undefined;
+  secondPickedImage = undefined;
+}
 function createCardFront() {
   const cardFront = document.createElement("div");
   const cardFrontText = document.createElement("img");
@@ -67,17 +122,21 @@ function createCard(indexForImg) {
   cardInner.addEventListener("click", function () {
     //Checks if the card is not the firstpickedimage/card and that it is in the 
     //cardsinplay so that means that you cant click an aleady matched card
-    if (this !== firstPickedImage && cardsInPlay.includes(this.parentNode)) {
+    const isNotFirstCard = this !== firstPickedImage
+    const isInPlay = cardsInPlay.includes(this.parentNode)
+    if (isNotFirstCard && isInPlay) {
+      if (inPlay === false) {
+        inPlay = true
+        gameTimer()
+      }
       cardInner.classList.toggle("is-flipped");
       if (firstPickedImage === undefined) {
         //variables value becomes the img src of the card object
         firstPickedImage = this;
+        return
       }
       //comparing first img to the second
-      else if (
-        firstPickedImage.lastElementChild.firstElementChild.src ===
-        this.lastElementChild.firstElementChild.src
-      ) {
+      else if (firstPickedImage.lastElementChild.firstElementChild.src === this.lastElementChild.firstElementChild.src) {
         setTimeout(
           (firstPickedImage, secondPickedImage) => {
             firstPickedImage.classList.add("greenboxshadow");
@@ -94,7 +153,8 @@ function createCard(indexForImg) {
         firstPickedImage = undefined;
         secondPickedImage = undefined;
         if (cardsInPlay.length === 0) {
-          alert("You won");
+          inPlay = false
+          displayWinningScreen()
         }
       }
       //if no match reset the variables to undefined
@@ -123,37 +183,22 @@ function createCard(indexForImg) {
 
 //Function to reset the game board with defualt or newly given number of pairs
 function reset() {
-  body.className = '';
-  body.classList.add(gameStyle + '-background-image')
-  bannerimg.src = `images/${gameStyle}banner.png`
-  menuBtns.childNodes.forEach(function(nodeObj) {
-    nodeObj.className = `${gameStyle}-btn`
-  })
-  //Removing all cards from the Container div
-  cardsInPlay.forEach((element) => {
-    container.removeChild(element);
-  });
-  cardsMatched.forEach((element) => {
-    container.removeChild(element);
-  });
-
-  //resetting the cardsinplay/matched arrays to append new cards
-  cardsInPlay = [];
-  cardsMatched = [];
-  firstPickedImage = undefined;
-  secondPickedImage = undefined;
-
-  //Creating the Cards through the createCard function then appending it to the cardsInPlay array and Container div
+  setGameStyle()
+  removeAllExistingCards()
+  //Creating the Cards through the createCard function then randomly appending it to the cardsInPlay array and Container div
   for (i = 0; i < numberOfPairs * 2; i++) {
     const card = createCard(i);
     randnum = Math.random() * cardsInPlay.length;
-    // cardsInPlay.push(card);
     cardsInPlay.splice(randnum, 0, card);
   }
   cardsInPlay.forEach((element) => {
     container.appendChild(element);
-    
   });
+  container.style.display = 'flex'
+  inPlay = false
+  seconds.textContent = '0'
+  milliseconds.textContent = '0'
+  winningMessage.style.display = 'none'
 }
 
 reset();
