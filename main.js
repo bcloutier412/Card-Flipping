@@ -1,7 +1,7 @@
 // Global Variables
 let cardsInPlay = [];
 let cardsMatched = [];
-let numberOfPairs = 2;
+let numberOfPairs = 7;
 let gameStyle = 'doodles';
 let cardBackgroundImg = 'images/doodlesgif.gif'
 let firstPickedImage = undefined;
